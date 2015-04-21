@@ -118,13 +118,13 @@ public class SetCharacterEncodingFilter implements Filter {
         if (ignore || (request.getCharacterEncoding() == null)) {
             String characterEncoding = selectEncoding(request);
             if (characterEncoding != null){
+            	System.out.println("filter"+request.getParameter("sayingContent"));
             	request.setCharacterEncoding(characterEncoding);
-            	System.out.println("characterEncoding"+characterEncoding);
+            	System.out.println("filter coding"+request.getParameter("sayingContent"));
             }                
         }
 
         // Pass control on to the next filter
-        System.out.println("filter");
         chain.doFilter(request, response);
 
     }

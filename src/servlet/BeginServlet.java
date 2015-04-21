@@ -29,7 +29,6 @@ public class BeginServlet extends HttpServlet{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		System.out.println("request.getParameter('username')"+request.getParameter("username"));
 		try {
 			response.sendRedirect("chat.jsp");
 		} catch (IOException e) {

@@ -20,13 +20,14 @@ public class ChatServlet extends HttpServlet{
 	 */
 	private static final long serialVersionUID = 1L;
 	static int success = 0;
-	protected void doGet(HttpServletRequest request,HttpServletResponse response){
+	@SuppressWarnings("unchecked")
+	protected void doPost(HttpServletRequest request,HttpServletResponse response){
+		@SuppressWarnings("rawtypes")
 		Map map = new HashMap();
 		map.put("content", request.getParameter("sayingContent"));
 		JSONObject json = JSONObject.fromObject(map);
 		try {
-			System.out.println("sayingContent");
-			System.out.println(request.getParameter("sayingContent"));
+			response.setContentType("text/html; charset=utf-8"); 
 			response.getWriter().print(json);
 		} catch (IOException e) {
 			e.printStackTrace();

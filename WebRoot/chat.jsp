@@ -35,14 +35,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script>
     	$(document).ready(function(){
 		  $("#submit").click(function(event){
-		  
-    		var text = $("#textarea").val();
 		  event.preventDefault();
-		  var htmlobj=$.ajax({url:"chat.do",success: function(data){   
-		  console.log("1data"+data);  
-		  console.log("2data.content"+data.content); 
-		  $("#said").append(data.content);},data:{sayingContent:$("#textarea").val()},dataType:"json"});
-		  console.log("0text"+text);
+		  var htmlobj=$.ajax({url:"chat.do",type:"POST",
+		  data:{sayingContent:$("#textarea").val()},dataType:"json",
+		  success: function(data){$("#said").append(data.content);}});
 		  });
 		});
     </script>
